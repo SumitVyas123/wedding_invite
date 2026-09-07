@@ -39,6 +39,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (envelope.classList.contains('is-opening')) return;
 
     button.disabled = true;
+    startWeddingMusic(
+      weddingMusic,
+      soundButton,
+      soundIcon,
+      soundLabel,
+      controlToast,
+      true
+    );
     createPetals(petalLayer);
     createSectionCornerPetals();
     romanticScene.classList.add('is-playing');
@@ -148,6 +156,7 @@ const translations = {
     mute: 'Mute',
     musicSoon:
       'Wedding music will be added after moving the website to GitHub.',
+    musicBlocked: 'Tap Sound to start the music.',
   },
   hi: {
     family: 'हमारे परिवारों के साथ',
@@ -185,6 +194,7 @@ const translations = {
     sound: 'संगीत',
     mute: 'बंद करें',
     musicSoon: 'विवाह संगीत वेबसाइट को GitHub पर ले जाने के बाद जोड़ा जाएगा।',
+    musicBlocked: 'संगीत शुरू करने के लिए संगीत बटन दबाएँ।',
   },
 };
 
@@ -222,8 +232,6 @@ function setupLanguageSwitch(
 function setupSoundControl(button, icon, label, audio, toast) {
   if (!button || !icon || !label || !audio) return;
   button.addEventListener('click', function () {
-    if (!audio.getAttribute('src')) audio.src = audio.dataset.src;
-
     if (!audio.paused) {
       audio.pause();
       icon.textContent = '🔇';
@@ -233,18 +241,37 @@ function setupSoundControl(button, icon, label, audio, toast) {
       return;
     }
 
-    audio
-      .play()
-      .then(function () {
-        icon.textContent = '🔊';
-        label.textContent = translations[currentLanguage].mute;
-        button.classList.add('is-playing');
-        button.setAttribute('aria-pressed', 'true');
-      })
-      .catch(function () {
-        showControlToast(toast, translations[currentLanguage].musicSoon);
-      });
+    startWeddingMusic(audio, button, icon, label, toast, false);
   });
+}
+
+function startWeddingMusic(audio, button, icon, label, toast, fromSeal) {
+  if (!audio || !button || !icon || !label || !audio.paused) return;
+
+  audio.volume = 0.48;
+  const playAttempt = audio.play();
+
+  if (!playAttempt) return;
+
+  playAttempt
+    .then(function () {
+      icon.textContent = '🔊';
+      label.textContent = translations[currentLanguage].mute;
+      button.classList.add('is-playing');
+      button.setAttribute('aria-pressed', 'true');
+    })
+    .catch(function () {
+      icon.textContent = '🔇';
+      label.textContent = translations[currentLanguage].sound;
+      button.classList.remove('is-playing');
+      button.setAttribute('aria-pressed', 'false');
+      showControlToast(
+        toast,
+        fromSeal
+          ? translations[currentLanguage].musicBlocked
+          : translations[currentLanguage].musicSoon
+      );
+    });
 }
 
 function showControlToast(toast, message) {
