@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twinkle &amp; Sumit — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Montserrat:wght@500&family=Noto+Serif+Devanagari:wght@400;600&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="white-page" id="romanticScene">
+        <img
+          class="mandap-watermark"
+          src="assets/images/indian-wedding-watermark.webp"
+          alt=""
+        />
+        <div class="scene-haze" aria-hidden="true"></div>
+        <img
+          class="dancing-couple"
+          src="assets/images/dancing-couple.webp"
+          alt="Illustration of an Indian wedding couple dancing"
+        />
+        <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+
+        <div
+          class="invitation-message"
+          id="invitationMessage"
+          aria-live="polite"
+        >
+          <p class="message-kicker" data-i18n="family">
+            Together with our families
+          </p>
+          <p class="message-copy" data-i18n="welcomeShort">
+            We are honored to welcome you<br />to the wedding ceremony of
+          </p>
+          <h1 class="couple-names">
+            <span class="person-name" data-i18n="brideName">Twinkle</span>
+            <span class="name-ampersand" data-i18n="ampersand">&amp;</span>
+            <span class="person-name" data-i18n="groomName">Sumit</span>
+          </h1>
+        </div>
+
+        <button
+          class="scroll-cue"
+          id="scrollCue"
+          type="button"
+          aria-label="Scroll to the wedding message"
+        >
+          <span data-i18n="scroll">Scroll down</span>
+          <i aria-hidden="true"></i>
+        </button>
+      </section>
+
+      <section
+        class="blessing-section"
+        id="blessingSection"
+        aria-label="Wedding welcome message"
+      >
+        <div class="heart-divider" aria-hidden="true">
+          <span></span>
+          <b>&hearts;</b>
+          <span></span>
+        </div>
+
+        <div class="blessing-card">
+          <p data-i18n="blessingMessage">
+            We are honored to welcome you to the wedding ceremony of
+            <strong>Twinkle and Sumit</strong> as they begin their journey
+            together in faith and love. We thank you for being part of this
+            blessed occasion.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="scratch-section"
+        id="scratchSection"
+        aria-label="Scratch wedding invitation"
+      >
+        <svg class="heart-clip-defs" width="0" height="0" aria-hidden="true">
+          <defs>
+            <clipPath id="perfectHeartClip" clipPathUnits="objectBoundingBox">
+              <path
+                d="M .5 .94 C .44 .88 .07 .63 .07 .32 C .07 .12 .3 .04 .5 .24 C .7 .04 .93 .12 .93 .32 C .93 .63 .56 .88 .5 .94 Z"
+              ></path>
+            </clipPath>
+          </defs>
+        </svg>
+
+        <div class="scratch-heading-band">
+          <div class="heart-divider scratch-divider" aria-hidden="true">
+            <span></span>
+            <b>&hearts;</b>
+            <span></span>
+          </div>
+
+          <p class="scratch-prompt" id="scratchPrompt" data-i18n="scratch">
+            Scratch to reveal
+          </p>
+
+          <div
+            class="heart-divider scratch-divider scratch-divider--lower"
+            aria-hidden="true"
+          >
+            <span></span>
+            <b>&hearts;</b>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="scratch-heart" id="scratchHeart">
+          <div class="heart-reveal">
+            <span class="heart-invited" data-i18n="invited"
+              >You're invited</span
+            >
+            <span class="heart-date" data-i18n="date">21 November 2026</span>
+            <span class="heart-day" data-i18n="day">Saturday</span>
+            <span class="heart-time" data-i18n="time">8:00 PM</span>
+          </div>
+          <canvas
+            id="scratchCanvas"
+            aria-label="Scratch the heart to reveal the wedding date"
+          ></canvas>
+        </div>
+
+        <div class="save-date" id="saveDate">
+          <span class="calendar-mark" aria-hidden="true">
+            <small data-i18n="calendarMonth">NOV</small>
+            <b>21</b>
+          </span>
+          <span class="save-date-copy">
+            <small data-i18n="kindly">Kindly</small>
+            <strong data-i18n="saveDate">Save the Date</strong>
+          </span>
+        </div>
+      </section>
+
+      <section
+        class="details-section countdown-section"
+        id="countdownSection"
+        aria-label="Wedding countdown"
+      >
+        <div class="heart-divider section-divider" aria-hidden="true">
+          <span></span><b>&hearts;</b><span></span>
+        </div>
+        <p class="details-kicker" data-i18n="counting">
+          Counting down to forever
+        </p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="countdown-box">
+            <strong id="days">00</strong><span data-i18n="days">Days</span>
+          </div>
+          <div class="countdown-box">
+            <strong id="hours">00</strong><span data-i18n="hours">Hours</span>
+          </div>
+          <div class="countdown-box">
+            <strong id="minutes">00</strong
+            ><span data-i18n="minutes">Minutes</span>
+          </div>
+          <div class="countdown-box">
+            <strong id="seconds">00</strong
+            ><span data-i18n="seconds">Seconds</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="details-section venue-section"
+        id="venueSection"
+        aria-label="Wedding venue"
+      >
+        <div class="heart-divider section-divider" aria-hidden="true">
+          <span></span><b>&hearts;</b><span></span>
+        </div>
+        <p class="details-kicker">
+          <span data-i18n="venue">Venue</span>
+          <span aria-hidden="true">&#128205;</span>
+        </p>
+        <h2 data-i18n="venueName">Shagun Palace and Lawn</h2>
+        <p class="venue-city" data-i18n="city">Lucknow</p>
+        <a
+          class="map-button"
+          href="https://www.google.com/maps/search/?api=1&amp;query=Shagun+Palace+and+Lawn+Lucknow"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-i18n="maps">View on Google Maps</span>
+        </a>
+      </section>
+
+      <section
+        class="details-section closing-section"
+        id="closingSection"
+        aria-label="Closing wedding message"
+      >
+        <div class="heart-divider section-divider" aria-hidden="true">
+          <span></span><b>&hearts;</b><span></span>
+        </div>
+        <div class="closing-note">
+          <p data-i18n="celebrate">We can't wait to celebrate with you</p>
+          <p class="note-signature" data-i18n="signature">
+            Twinkle &amp; Sumit
+          </p>
+        </div>
+        <p class="thank-you" data-i18n="thanks">Thank You</p>
+      </section>
+
+      <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+      <section
+        class="envelope-screen"
+        id="envelopeScreen"
+        aria-label="Wedding invitation envelope"
+      >
+        <div class="envelope" id="envelope">
+          <div class="wing wing--left">
+            <div class="paper paper--kraft">
+              <div class="kraft-fold kraft-fold--top"></div>
+              <div class="kraft-fold kraft-fold--bottom"></div>
+              <div class="fold-line fold-line--top"></div>
+              <div class="fold-line fold-line--bottom"></div>
+            </div>
+          </div>
+
+          <div class="wing wing--right">
+            <div class="paper paper--charcoal">
+              <div class="charcoal-light"></div>
+              <div class="charcoal-fold"></div>
+            </div>
+
+            <button
+              class="wax-seal"
+              id="openEnvelope"
+              type="button"
+              aria-label="Open wedding invitation"
+            >
+              <span class="seal-border" aria-hidden="true"></span>
+              <span class="rings" aria-hidden="true">◯◯</span>
+              <span class="tap-text" data-i18n="tapOpen">Tap to open</span>
+            </button>
+          </div>
+
+          <div class="center-glow" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <button
+      class="floating-control language-control"
+      id="languageButton"
+      type="button"
+      aria-label="Switch invitation language"
+    >
+      <span aria-hidden="true">&#127760;</span>
+      <b id="languageLabel">हिंदी</b>
+    </button>
+
+    <button
+      class="floating-control sound-control"
+      id="soundButton"
+      type="button"
+      aria-label="Play wedding music"
+      aria-pressed="false"
+    >
+      <span id="soundIcon" aria-hidden="true">&#128263;</span>
+      <b id="soundLabel">Sound</b>
+    </button>
+
+    <div
+      class="control-toast"
+      id="controlToast"
+      role="status"
+      aria-live="polite"
+    ></div>
+    <audio
+      id="weddingMusic"
+      loop
+      preload="none"
+      data-src="assets/audio/wedding-music.mp3"
+    ></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
